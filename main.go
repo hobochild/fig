@@ -12,6 +12,7 @@ import (
 	"github.com/FooSoft/goldsmith-components/plugins/layout"
 	"github.com/FooSoft/goldsmith-components/plugins/markdown"
 	"github.com/FooSoft/goldsmith-components/plugins/minify"
+	"github.com/FooSoft/goldsmith-components/plugins/syntax"
 )
 
 type builder struct {
@@ -24,6 +25,7 @@ func (b *builder) Build(srcDir, dstDir, cacheDir string) {
 		Chain(frontmatter.New()).          // extract frontmatter and store it as metadata
 		Chain(markdown.New()).             // convert *.md files to *.html files
 		Chain(layout.New()).               // apply *.gohtml templates to *.html files
+		Chain(syntax.New()).               // apply *.gohtml templates to *.html files
 		FilterPush(condition.New(b.dist)). // push a dist-only conditional filter onto the stack
 		Chain(minify.New()).               // minify *.html, *.css, *.js, etc. files
 		FilterPop().                       // pop off the last filter pushed onto the stack
