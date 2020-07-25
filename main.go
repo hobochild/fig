@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"log"
+  "fmt"
 
 	"github.com/FooSoft/goldsmith"
 	"github.com/FooSoft/goldsmith-components/devserver"
@@ -35,8 +36,15 @@ func (b *builder) Build(srcDir, dstDir, cacheDir string) {
 
 func main() {
 	port := flag.Int("port", 8080, "server port")
-	dist := flag.Bool("dist", false, "final dist mode")
+	dev := flag.Bool("dev", false, "run dev server")
 	flag.Parse()
+  dist := !*dev
+  b := builder{dist}
 
-	devserver.DevServe(&builder{*dist}, *port, "content", "build", "cache")
+  if *dev {
+    fmt.Printf("Running dev server on port %d", *port)
+	  devserver.DevServe(&b, *port, "content", "build", "cache")
+  } else {
+    b.Build("content", "build", "cache")
+  }
 }
