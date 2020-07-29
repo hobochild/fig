@@ -9,10 +9,10 @@ var defaultLayout = `
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <meta name="description" content="{{.Meta.Description}}">
           <title>{{.Meta.Title}}</title>
-          <style src="https://classic.yarnpkg.com/en/package/normalize.css"></style>
-          <style src="https://cdn.jsdelivr.net/gh/hobochild/fig/style.css">
-          {{range .Meta.cssFiles }}    
-            <style src="/{{.Path}}"></style>
+          <link href="https://classic.yarnpkg.com/en/package/normalize.css"></link>
+          <link href="https://cdn.jsdelivr.net/gh/hobochild/fig/style.css"></link>
+          {{range .Meta.cssFiles }}
+            <link href="/{{.Path}}" rel="stylesheet" type="text/css"></style>
           {{end}}
       </head>
       <body>
@@ -25,7 +25,11 @@ var defaultLayout = `
 
   {{define "__basic__"}}
       {{template "__header__" .}}
+      <main class="main">
       {{if and (eq .Name "index.html") (eq .Dir ".") }} {{ else }}<a href="/">Home</a>{{end}}
+      <h1>{{.Meta.Title}}</h1>
+      {{.Meta.Content}}
+      </main>
       {{template "__footer__" .}}
   {{end}}
   `
