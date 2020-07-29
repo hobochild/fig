@@ -23,7 +23,7 @@ type builder struct {
 
 func (b *builder) Build(srcDir, dstDir, cacheDir string) {
   l := layout.New()
-  l.DefaultLayout("basic")
+  l.DefaultLayout("__basic__")
 
 	errs := goldsmith.
 		Begin(srcDir).                     // read files from srcDir
