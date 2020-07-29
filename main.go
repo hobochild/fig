@@ -9,22 +9,27 @@ import (
 	"github.com/FooSoft/goldsmith-components/devserver"
 	"github.com/FooSoft/goldsmith-components/filters/condition"
 	"github.com/FooSoft/goldsmith-components/plugins/frontmatter"
-	"github.com/FooSoft/goldsmith-components/plugins/layout"
 	"github.com/FooSoft/goldsmith-components/plugins/markdown"
 	"github.com/FooSoft/goldsmith-components/plugins/minify"
 	"github.com/FooSoft/goldsmith-components/plugins/syntax"
+  "github.com/hobochild/fig/layout"
 )
 
 type builder struct {
 	dist bool
 }
 
+
+
 func (b *builder) Build(srcDir, dstDir, cacheDir string) {
+  l := layout.New()
+  l.DefaultLayout("basic")
+
 	errs := goldsmith.
 		Begin(srcDir).                     // read files from srcDir
 		Chain(frontmatter.New()).          // extract frontmatter and store it as metadata
 		Chain(markdown.New()).             // convert *.md files to *.html files
-		Chain(layout.New()).               // apply *.gohtml templates to *.html files
+		Chain(l).               // apply *.gohtml templates to *.html files
 		Chain(syntax.New()).               // apply *.gohtml templates to *.html files
 		FilterPush(condition.New(b.dist)). // push a dist-only conditional filter onto the stack
 		Chain(minify.New()).               // minify *.html, *.css, *.js, etc. files
