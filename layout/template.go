@@ -9,8 +9,8 @@ var defaultLayout = `
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <meta name="description" content="{{.Meta.Description}}">
           <title>{{.Meta.Title}}</title>
-          <link href="https://classic.yarnpkg.com/en/package/normalize.css"></link>
-          <link href="https://cdn.jsdelivr.net/gh/hobochild/fig/style.css"></link>
+          <link href="https://classic.yarnpkg.com/en/package/normalize.css" rel="stylesheet" type="text/css"></link>
+          <link href="https://cdn.jsdelivr.net/gh/hobochild/fig/style.css" rel="stylesheet" type="text/css"></link>
           {{range .Meta.cssFiles }}
             <link href="/{{.Path}}" rel="stylesheet" type="text/css"></style>
           {{end}}

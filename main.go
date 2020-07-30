@@ -13,6 +13,7 @@ import (
 	"github.com/FooSoft/goldsmith-components/plugins/minify"
 	"github.com/FooSoft/goldsmith-components/plugins/syntax"
   "github.com/hobochild/fig/layout"
+  "github.com/FooSoft/goldsmith-components/plugins/livejs"
 )
 
 type builder struct {
@@ -34,6 +35,7 @@ func (b *builder) Build(srcDir, dstDir, cacheDir string) {
 		FilterPush(condition.New(b.dist)). // push a dist-only conditional filter onto the stack
 		Chain(minify.New()).               // minify *.html, *.css, *.js, etc. files
 		FilterPop().                       // pop off the last filter pushed onto the stack
+    Chain(livejs.New()).
 		End(dstDir)                        // write files to dstDir
 
 	for _, err := range errs {
