@@ -18,7 +18,7 @@ git submodule update --recursive --remote
 echo '=================== Build site ==================='
 fig
 echo '=================== Publish to GitHub Pages ==================='
-cd dist
+cd build
 remote_repo="git@github.com:${GITHUB_DEPLOY_REPOSITORY}.git" && \
 remote_branch=${GITHUB_DEPLOY_BRANCH} && \
 echo "Pushing Builds to $remote_repo:$remote_branch" && \
