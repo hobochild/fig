@@ -13,7 +13,7 @@ import (
 	"github.com/FooSoft/goldsmith-components/plugins/minify"
 	"github.com/FooSoft/goldsmith-components/plugins/syntax"
   "github.com/hobochild/fig/layout"
-  "github.com/FooSoft/goldsmith-components/plugins/livejs"
+  "github.com/hobochild/fig/livejs"
 )
 
 type builder struct {
