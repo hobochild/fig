@@ -9,7 +9,7 @@ var defaultLayout = `
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <meta name="description" content="{{.Meta.Description}}">
           <title>{{.Meta.Title}}</title>
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hobochild/style.min.css" />
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hobochild/fig/style.min.css" type="text/css" />
           {{range .Meta.cssFiles }}
             <link href="/{{.Path}}" rel="stylesheet" type="text/css"></style>
           {{end}}
