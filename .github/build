@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # The basename of our binary
-BASE="fig"
+BASE="lil"
 
 # Save our directory, since we build in child-directories later.
 D=$(pwd)

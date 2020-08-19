@@ -30,7 +30,9 @@ var defaultLayout = `
         <path d="M10 6 L2 16 10 26 M2 16 L30 16" />
     </svg>Home</a>{{end}}
       <h1>{{.Meta.Title}}</h1>
+      <article>
       {{.Meta.Content}}
+      </article>
       </main>
       {{template "__footer__" .}}
   {{end}}
