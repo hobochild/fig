@@ -2,7 +2,7 @@
 
 > A lil static site generator.
 
-I wanted a dead simple generator that produced a pretty but readable site from a set of markdown files and has a pleasant dev expierence. I didn't want any config files, taxonomy systems or javascript frameworks.
+I wanted a dead simple generator that produced a pretty but readable site from a set of markdown files with a pleasant dev expierence. I didn't want any config files, taxonomy systems or javascript frameworks.
 
 # Install
 
@@ -22,7 +22,7 @@ If you want to overwrite the default styles put a css file in the content direct
 echo "body { background: red; }" > content/style.css
 ```
 
-You can also [customize the templates](/docs.md#customize-template) if you like.
+You can also [customize the templates](/DOCS.md#customize-template) if you like.
 
 # Dev mode:
 
@@ -36,4 +36,4 @@ lil -d
 lil
 ```
 
-Built on [goldsmith](https://github.com/FooSoft/goldsmith)
+Built with [goldsmith](https://github.com/FooSoft/goldsmith)
