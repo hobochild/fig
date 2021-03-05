@@ -57,6 +57,10 @@ code {
   padding: 3px 5px;
 }
 
+pre code {
+  background: none;
+}
+
 img {
   width: 100%;
 }
